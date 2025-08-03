@@ -598,9 +598,18 @@
         }
 
         @media (max-width: 768px) {
+            /* Fundo vai de borda a borda */
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
             .floor {
-                min-height: 75vh;
-                border-radius: 15px;
+                min-height: 100vh;
+                border-radius: 0;
+                margin: 0;
+                width: 100vw;
+                margin-left: calc(-50vw + 50%);
             }
 
             .album-cover {
@@ -636,12 +645,42 @@
                 width: 80px;
             }
             
-            /* Mobile adjustments */
+            /* Card das músicas transparente branco */
             .music-card {
                 width: 95%;
                 max-width: 350px;
                 padding: 20px;
-                background: rgba(15, 25, 45, 0.7);
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            /* Card minimizado quando está tocando */
+            .floor.playing .music-card {
+                transform: scale(0.7) translateY(-30px);
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(15px);
+                padding: 15px;
+                border-radius: 20px;
+            }
+            
+            /* Ocultar elementos desnecessários quando minimizado */
+            .floor.playing .song-info p:not(.artist) {
+                display: none;
+            }
+            
+            .floor.playing .album-cover {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .floor.playing .song-title {
+                font-size: 1.2rem;
+            }
+            
+            .floor.playing .artist {
+                font-size: 1rem;
             }
             
             .floor-bg {
@@ -674,14 +713,15 @@
             }
 
             .floor {
-                min-height: 70vh;
-                border-radius: 15px;
+                min-height: 100vh;
+                border-radius: 0;
             }
 
             .music-card {
                 padding: 15px;
                 width: 95%;
                 max-width: 300px;
+                background: rgba(255, 255, 255, 0.08);
             }
 
             .album-cover {
@@ -695,6 +735,17 @@
             
             .artist {
                 font-size: 1.1rem;
+            }
+            
+            /* Card ainda mais compacto em telas pequenas */
+            .floor.playing .music-card {
+                transform: scale(0.6) translateY(-40px);
+                max-width: 250px;
+            }
+            
+            .floor.playing .album-cover {
+                width: 100px;
+                height: 100px;
             }
 
             .controls {
@@ -1005,6 +1056,18 @@
                 audio.src = songs[index].audioUrl;
                 audio.volume = volumeSlider.value / 100;
                 
+                // Evento para quando há erro de carregamento
+                audio.onerror = (error) => {
+                    console.error("Erro ao carregar áudio:", error);
+                    alert(`Erro ao carregar a música: ${songs[index].title}\nVerifique se o arquivo existe na pasta 'musicas'\n\nDica: Para usar arquivos locais, abra o arquivo através de um servidor web local.`);
+                    isPlaying = false;
+                    playBtn.classList.remove("fa-pause");
+                    playBtn.classList.add("fa-play");
+                    albumCover.classList.remove("playing");
+                    floor.classList.remove("playing");
+                    return;
+                };
+                
                 // Atualizar duração real quando o áudio carregar
                 audio.addEventListener('loadedmetadata', function() {
                     songs[index].totalSeconds = audio.duration;
@@ -1019,12 +1082,22 @@
                     }
                 });
 
-                audio.play().catch(error => {
-                    console.error("Erro ao reproduzir áudio:", error);
-                    alert(`Erro ao carregar a música: ${songs[index].title}\nVerifique se o arquivo existe na pasta 'musicas'`);
-                    isPlaying = false;
-                    return;
-                });
+                // Tentar carregar o áudio primeiro
+                audio.load();
+                
+                // Aguardar um pouco antes de tentar reproduzir
+                setTimeout(() => {
+                    audio.play().catch(error => {
+                        console.error("Erro ao reproduzir áudio:", error);
+                        alert(`Erro ao reproduzir a música: ${songs[index].title}\n\nPossíveis soluções:\n1. Verifique se o arquivo existe na pasta 'musicas'\n2. Use um servidor web local (como Live Server)\n3. Teste online em: joaquimplj.github.io/meu-palyer-musica`);
+                        isPlaying = false;
+                        playBtn.classList.remove("fa-pause");
+                        playBtn.classList.add("fa-play");
+                        albumCover.classList.remove("playing");
+                        floor.classList.remove("playing");
+                        return;
+                    });
+                }, 100);
 
                 playBtn.classList.remove("fa-play");
                 playBtn.classList.add("fa-pause");
