@@ -20,11 +20,30 @@
             min-height: 100vh;
             scroll-behavior: smooth;
         }
+        
+        /* Mobile: Remove padding/margin do body */
+        @media (max-width: 768px) {
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+        
+        /* Mobile: Remove limitações do container */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+            }
         }
 
         header {
@@ -606,10 +625,20 @@
             
             .floor {
                 min-height: 100vh;
-                border-radius: 0;
-                margin: 0;
-                width: 100vw;
-                margin-left: calc(-50vw + 50%);
+                border-radius: 0 !important;
+                margin: 0 !important;
+                width: 100vw !important;
+                margin-left: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                position: relative;
+                transform: none !important;
+            }
+            
+            .floors-container {
+                gap: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
             .album-cover {
@@ -650,10 +679,11 @@
                 width: 95%;
                 max-width: 350px;
                 padding: 20px;
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.25) !important;
+                backdrop-filter: blur(15px) !important;
+                border: 2px solid rgba(255, 255, 255, 0.4) !important;
                 transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
             }
             
             /* Card minimizado quando está tocando */
@@ -861,7 +891,7 @@
                 duration: "5:55",
                 composer: "Freddie Mercury",
                 totalSeconds: 355,
-                audioUrl: "./musicas/SpotiDownloader.com - Bohemian Rhapsody - Queen.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - Bohemian Rhapsody - Queen.mp3"
             },
             {
                 title: "Pink Matter",
@@ -871,7 +901,7 @@
                 duration: "4:04",
                 composer: "Frank Ocean",
                 totalSeconds: 244,
-                audioUrl: "./musicas/SpotiDownloader.com - Pink Matter - Frank Ocean.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - Pink Matter - Frank Ocean.mp3"
             },
             {
                 title: "Jesus Walks",
@@ -881,7 +911,7 @@
                 duration: "3:13",
                 composer: "Kanye West",
                 totalSeconds: 193,
-                audioUrl: "./musicas/SpotiDownloader.com - Jesus Walks - Kanye West.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - Jesus Walks - Kanye West.mp3"
             },
             {
                 title: "(Sittin' On) The Dock of the Bay",
@@ -891,7 +921,7 @@
                 duration: "2:43",
                 composer: "Otis Redding & Steve Cropper",
                 totalSeconds: 163,
-                audioUrl: "./musicas/SpotiDownloader.com - (Sittin' On) the Dock of the Bay - Otis Redding.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - (Sittin' On) the Dock of the Bay - Otis Redding.mp3"
             },
             {
                 title: "November Rain",
@@ -901,7 +931,7 @@
                 duration: "8:57",
                 composer: "Axl Rose",
                 totalSeconds: 537,
-                audioUrl: "./musicas/SpotiDownloader.com - November Rain - Guns N' Roses.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - November Rain - Guns N' Roses.mp3"
             },
             {
                 title: "I Believe to My Soul",
@@ -911,7 +941,7 @@
                 duration: "3:18",
                 composer: "Ray Charles",
                 totalSeconds: 198,
-                audioUrl: "./musicas/SpotiDownloader.com - I Believe to My Soul - Ray Charles.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - I Believe to My Soul - Ray Charles.mp3"
             },
             {
                 title: "Eu Amo Você",
@@ -921,7 +951,7 @@
                 duration: "4:12",
                 composer: "Tim Maia",
                 totalSeconds: 252,
-                audioUrl: "./musicas/SpotiDownloader.com - Eu Amo Você - Tim Maia.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - Eu Amo Você - Tim Maia.mp3"
             },
             {
                 title: "California Dreamin'",
@@ -931,7 +961,7 @@
                 duration: "2:40",
                 composer: "John Phillips & Michelle Phillips",
                 totalSeconds: 160,
-                audioUrl: "./musicas/SpotiDownloader.com - California Dreamin' - The Mamas & The Papas.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - California Dreamin' - The Mamas & The Papas.mp3"
             },
             {
                 title: "Cotidiano",
@@ -941,7 +971,7 @@
                 duration: "3:45",
                 composer: "Chico Buarque",
                 totalSeconds: 225,
-                audioUrl: "./musicas/SpotiDownloader.com - Cotidiano - Chico Buarque.mp3"
+                audioUrl: "musicas/SpotiDownloader.com - Cotidiano - Chico Buarque.mp3"
             },
         ];
 
@@ -1426,7 +1456,7 @@
             let checkedFiles = 0;
             
             songs.forEach((song, index) => {
-                if (song.audioUrl.startsWith('./musicas/')) {
+                if (song.audioUrl.startsWith('musicas/') || song.audioUrl.startsWith('./musicas/')) {
                     const audio = new Audio();
                     audio.onerror = () => {
                         missingFiles.push(`${index + 1}. ${song.title} - ${song.artist}`);
