@@ -702,117 +702,108 @@
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
             }
             
-            /* Card minimizado quando está tocando COM LUZ ATRÁS */
+            /* Card minimizado quando está tocando */
             .floor.playing .music-card {
                 transform: scale(0.7) translateY(-30px);
                 background: rgba(255, 255, 255, 0.05);
                 backdrop-filter: blur(15px);
                 padding: 15px;
                 border-radius: 20px;
-                border: 2px solid rgba(255, 255, 255, 0.3);
                 position: relative;
                 z-index: 2;
             }
             
-            /* 🌟 LUZ SAINDO DAS BORDAS DO CARD - CORES ESPECÍFICAS POR MÚSICA 🌟 */
+            /* 🌟 BORDAS COLORIDAS PULSANTES - CORES ESPECÍFICAS POR MÚSICA 🌟 */
             /* Bohemian Rhapsody - Roxo/Dourado */
             .floor[data-index="0"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(138, 43, 226, 0.8),
-                    0 0 60px rgba(255, 215, 0, 0.6),
-                    0 0 90px rgba(138, 43, 226, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(138, 43, 226, 0.8);
+                animation: pulseBorder0 2s ease-in-out infinite;
             }
             
             /* Pink Matter - Laranja (como pedido) */
             .floor[data-index="1"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(255, 140, 0, 0.9),
-                    0 0 60px rgba(255, 69, 0, 0.7),
-                    0 0 90px rgba(255, 140, 0, 0.5),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(255, 140, 0, 0.9);
+                animation: pulseBorder1 2s ease-in-out infinite;
             }
             
             /* Jesus Walks - Azul/Dourado */
             .floor[data-index="2"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(30, 144, 255, 0.8),
-                    0 0 60px rgba(255, 215, 0, 0.6),
-                    0 0 90px rgba(30, 144, 255, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(30, 144, 255, 0.8);
+                animation: pulseBorder2 2s ease-in-out infinite;
             }
             
             /* Dock of the Bay - Verde/Azul */
             .floor[data-index="3"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(32, 178, 170, 0.8),
-                    0 0 60px rgba(0, 191, 255, 0.6),
-                    0 0 90px rgba(32, 178, 170, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(32, 178, 170, 0.8);
+                animation: pulseBorder3 2s ease-in-out infinite;
             }
             
             /* November Rain - Vermelho/Rosa */
             .floor[data-index="4"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(220, 20, 60, 0.8),
-                    0 0 60px rgba(255, 20, 147, 0.6),
-                    0 0 90px rgba(220, 20, 60, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(220, 20, 60, 0.8);
+                animation: pulseBorder4 2s ease-in-out infinite;
             }
             
             /* I Believe to My Soul - Amarelo/Laranja */
             .floor[data-index="5"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(255, 193, 7, 0.8),
-                    0 0 60px rgba(255, 140, 0, 0.6),
-                    0 0 90px rgba(255, 193, 7, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(255, 193, 7, 0.8);
+                animation: pulseBorder5 2s ease-in-out infinite;
             }
             
             /* Eu Amo Você - Verde/Lima */
             .floor[data-index="6"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(50, 205, 50, 0.8),
-                    0 0 60px rgba(173, 255, 47, 0.6),
-                    0 0 90px rgba(50, 205, 50, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(50, 205, 50, 0.8);
+                animation: pulseBorder6 2s ease-in-out infinite;
             }
             
             /* California Dreamin' - Rosa/Roxo */
             .floor[data-index="7"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(255, 105, 180, 0.8),
-                    0 0 60px rgba(147, 112, 219, 0.6),
-                    0 0 90px rgba(255, 105, 180, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(255, 105, 180, 0.8);
+                animation: pulseBorder7 2s ease-in-out infinite;
             }
             
             /* Cotidiano - Ciano/Azul */
             .floor[data-index="8"].playing .music-card {
-                box-shadow: 
-                    0 0 30px rgba(0, 255, 255, 0.8),
-                    0 0 60px rgba(70, 130, 180, 0.6),
-                    0 0 90px rgba(0, 255, 255, 0.4),
-                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
-                animation: pulseGlow 2s ease-in-out infinite;
+                border: 4px solid rgba(0, 255, 255, 0.8);
+                animation: pulseBorder8 2s ease-in-out infinite;
             }
             
-            /* 🎵 ANIMAÇÃO PARA LUZ DAS BORDAS 🎵 */
-            @keyframes pulseGlow {
-                0%, 100% {
-                    transform: scale(0.7) translateY(-30px);
-                }
-                50% {
-                    transform: scale(0.72) translateY(-30px);
-                }
+            /* 🎵 ANIMAÇÕES PARA BORDAS PULSANTES 🎵 */
+            @keyframes pulseBorder0 {
+                0%, 100% { border-color: rgba(138, 43, 226, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(255, 215, 0, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder1 {
+                0%, 100% { border-color: rgba(255, 140, 0, 0.7); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(255, 69, 0, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder2 {
+                0%, 100% { border-color: rgba(30, 144, 255, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(255, 215, 0, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder3 {
+                0%, 100% { border-color: rgba(32, 178, 170, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(0, 191, 255, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder4 {
+                0%, 100% { border-color: rgba(220, 20, 60, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(255, 20, 147, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder5 {
+                0%, 100% { border-color: rgba(255, 193, 7, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(255, 140, 0, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder6 {
+                0%, 100% { border-color: rgba(50, 205, 50, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(173, 255, 47, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder7 {
+                0%, 100% { border-color: rgba(255, 105, 180, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(147, 112, 219, 1); transform: scale(0.72) translateY(-30px); }
+            }
+            @keyframes pulseBorder8 {
+                0%, 100% { border-color: rgba(0, 255, 255, 0.6); transform: scale(0.7) translateY(-30px); }
+                50% { border-color: rgba(70, 130, 180, 1); transform: scale(0.72) translateY(-30px); }
             }
             
             /* Ocultar elementos desnecessários quando minimizado */
@@ -1302,12 +1293,12 @@
                         <div class="playlist-item-title" style="font-weight: bold; color: white; margin-bottom: 5px;">${song.title}</div>
                         <div class="playlist-item-artist" style="color: #b3b3b3; font-size: 0.9rem;">${song.artist}</div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
                         <div class="playlist-item-duration" style="color: #b3b3b3; font-size: 0.9rem; min-width: 40px;">${song.duration}</div>
-                        <a href="${song.spotifyUrl}" target="_blank" class="spotify-btn" 
-                           style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #1db954; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);"
-                           title="Ouvir no Spotify">
-                            <i class="fab fa-spotify" style="color: white; font-size: 18px;"></i>
+                        <a href="${song.spotifyUrl}" target="_blank" class="spotify-btn-playlist" 
+                           style="display: flex !important; align-items: center; justify-content: center; width: 45px; height: 45px; background: #1db954 !important; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4); flex-shrink: 0;"
+                           title="🎵 Abrir no Spotify">
+                            <i class="fab fa-spotify" style="color: white !important; font-size: 20px !important; line-height: 1;"></i>
                         </a>
                     </div>
                 `;
@@ -1316,24 +1307,26 @@
                 
                 // Evento para tocar música quando clicada (mas não no botão do Spotify)
                 playlistItem.addEventListener("click", (e) => {
-                    if (!e.target.closest(".spotify-btn")) {
+                    if (!e.target.closest(".spotify-btn-playlist")) {
                         playPause(index);
                         playlistModal.classList.remove("show");
                     }
                 });
                 
                 // Efeito hover para o botão do Spotify
-                const spotifyBtn = playlistItem.querySelector(".spotify-btn");
-                spotifyBtn.addEventListener("mouseenter", () => {
-                    spotifyBtn.style.background = "#1ed760";
-                    spotifyBtn.style.transform = "scale(1.1)";
-                    spotifyBtn.style.boxShadow = "0 6px 20px rgba(30, 215, 96, 0.4)";
-                });
-                spotifyBtn.addEventListener("mouseleave", () => {
-                    spotifyBtn.style.background = "#1db954";
-                    spotifyBtn.style.transform = "scale(1)";
-                    spotifyBtn.style.boxShadow = "0 4px 15px rgba(29, 185, 84, 0.3)";
-                });
+                const spotifyBtn = playlistItem.querySelector(".spotify-btn-playlist");
+                if (spotifyBtn) {
+                    spotifyBtn.addEventListener("mouseenter", () => {
+                        spotifyBtn.style.background = "#1ed760 !important";
+                        spotifyBtn.style.transform = "scale(1.15)";
+                        spotifyBtn.style.boxShadow = "0 6px 25px rgba(30, 215, 96, 0.6)";
+                    });
+                    spotifyBtn.addEventListener("mouseleave", () => {
+                        spotifyBtn.style.background = "#1db954 !important";
+                        spotifyBtn.style.transform = "scale(1)";
+                        spotifyBtn.style.boxShadow = "0 4px 15px rgba(29, 185, 84, 0.4)";
+                    });
+                }
             });
         }
 
