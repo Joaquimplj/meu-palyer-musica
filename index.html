@@ -702,71 +702,172 @@
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
             }
             
-            /* Card minimizado quando está tocando COM EFEITOS ESPETACULARES */
+            /* Card minimizado quando está tocando COM LUZ ATRÁS */
             .floor.playing .music-card {
                 transform: scale(0.7) translateY(-30px);
                 background: rgba(255, 255, 255, 0.05);
                 backdrop-filter: blur(15px);
                 padding: 15px;
                 border-radius: 20px;
-                
-                /* 🎵 EFEITO BRILHO PULSANTE 🎵 */
-                box-shadow: 
-                    0 0 30px rgba(255, 255, 255, 0.8),
-                    0 0 60px rgba(135, 206, 235, 0.6),
-                    0 0 90px rgba(255, 20, 147, 0.4),
-                    inset 0 0 20px rgba(255, 255, 255, 0.1);
-                
-                /* 🌟 BORDER ANIMADO 🌟 */
-                border: 2px solid transparent;
-                background-clip: padding-box;
+                border: 2px solid rgba(255, 255, 255, 0.3);
                 position: relative;
-                
-                /* 🎨 ANIMAÇÃO CONTÍNUA 🎨 */
-                animation: pulseGlow 2s ease-in-out infinite, borderRainbow 3s linear infinite;
+                z-index: 2;
             }
             
-            /* 🌈 EFEITO BORDER COLORIDO ANIMADO 🌈 */
-            .floor.playing .music-card::before {
+            /* 🌟 LUZ ATRÁS DO CARD - CORES ESPECÍFICAS POR MÚSICA 🌟 */
+            /* Bohemian Rhapsody - Roxo/Dourado */
+            .floor[data-index="0"].playing::before {
                 content: '';
                 position: absolute;
-                top: -3px;
-                left: -3px;
-                right: -3px;
-                bottom: -3px;
-                background: linear-gradient(45deg, 
-                    #ff0080, #ff8c00, #40e0d0, #ee82ee, 
-                    #98fb98, #ff6347, #87ceeb, #dda0dd);
-                background-size: 300% 300%;
-                border-radius: 23px;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(138, 43, 226, 0.8) 0%, rgba(255, 215, 0, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
                 z-index: -1;
-                animation: rainbowBorder 2s ease-in-out infinite;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
             }
             
-            /* 🎵 KEYFRAMES PARA ANIMAÇÕES 🎵 */
-            @keyframes pulseGlow {
-                0%, 100% {
-                    box-shadow: 
-                        0 0 30px rgba(255, 255, 255, 0.8),
-                        0 0 60px rgba(135, 206, 235, 0.6),
-                        0 0 90px rgba(255, 20, 147, 0.4),
-                        inset 0 0 20px rgba(255, 255, 255, 0.1);
-                }
-                50% {
-                    box-shadow: 
-                        0 0 40px rgba(255, 255, 255, 1),
-                        0 0 80px rgba(135, 206, 235, 0.8),
-                        0 0 120px rgba(255, 20, 147, 0.6),
-                        inset 0 0 30px rgba(255, 255, 255, 0.2);
-                }
+            /* Pink Matter - Laranja (como pedido) */
+            .floor[data-index="1"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(255, 140, 0, 0.9) 0%, rgba(255, 69, 0, 0.7) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
             }
             
-            @keyframes rainbowBorder {
+            /* Jesus Walks - Azul/Dourado */
+            .floor[data-index="2"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(30, 144, 255, 0.8) 0%, rgba(255, 215, 0, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* Dock of the Bay - Verde/Azul */
+            .floor[data-index="3"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(32, 178, 170, 0.8) 0%, rgba(0, 191, 255, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* November Rain - Vermelho/Rosa */
+            .floor[data-index="4"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(220, 20, 60, 0.8) 0%, rgba(255, 20, 147, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* I Believe to My Soul - Amarelo/Laranja */
+            .floor[data-index="5"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(255, 193, 7, 0.8) 0%, rgba(255, 140, 0, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* Eu Amo Você - Verde/Lima */
+            .floor[data-index="6"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(50, 205, 50, 0.8) 0%, rgba(173, 255, 47, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* California Dreamin' - Rosa/Roxo */
+            .floor[data-index="7"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(255, 105, 180, 0.8) 0%, rgba(147, 112, 219, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* Cotidiano - Ciano/Azul */
+            .floor[data-index="8"].playing::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 120%;
+                height: 120%;
+                background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(70, 130, 180, 0.6) 50%, transparent 70%);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                z-index: -1;
+                animation: pulseLight 2s ease-in-out infinite;
+                filter: blur(20px);
+            }
+            
+            /* 🎵 ANIMAÇÃO PARA LUZ ATRÁS 🎵 */
+            @keyframes pulseLight {
                 0%, 100% {
-                    background-position: 0% 50%;
+                    opacity: 0.6;
+                    transform: translate(-50%, -50%) scale(1);
                 }
                 50% {
-                    background-position: 100% 50%;
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1.1);
                 }
             }
             
@@ -944,7 +1045,7 @@
             visibility: visible;
         }
         
-        .playlist-modal > div:first-child {
+        .playlist-modal > div {
             background: rgba(20, 20, 20, 0.95);
             border-radius: 20px;
             width: 90%;
@@ -953,6 +1054,8 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
         }
         
         .playlist-header {
@@ -1101,13 +1204,15 @@
     </div>
     
     <div class="playlist-modal" id="playlistModal">
-        <div class="playlist-header">
-            <h2 class="playlist-title">Playlist</h2>
-            <button class="close-playlist" id="closePlaylist">
-                <i class="fas fa-times"></i>
-            </button>
+        <div>
+            <div class="playlist-header">
+                <h2 class="playlist-title">🎵 Playlist com Spotify</h2>
+                <button class="close-playlist" id="closePlaylist">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="playlist-items" id="playlistItems"></div>
         </div>
-        <div class="playlist-items" id="playlistItems"></div>
     </div>
 
     <script>
