@@ -702,13 +702,72 @@
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
             }
             
-            /* Card minimizado quando está tocando */
+            /* Card minimizado quando está tocando COM EFEITOS ESPETACULARES */
             .floor.playing .music-card {
                 transform: scale(0.7) translateY(-30px);
                 background: rgba(255, 255, 255, 0.05);
                 backdrop-filter: blur(15px);
                 padding: 15px;
                 border-radius: 20px;
+                
+                /* 🎵 EFEITO BRILHO PULSANTE 🎵 */
+                box-shadow: 
+                    0 0 30px rgba(255, 255, 255, 0.8),
+                    0 0 60px rgba(135, 206, 235, 0.6),
+                    0 0 90px rgba(255, 20, 147, 0.4),
+                    inset 0 0 20px rgba(255, 255, 255, 0.1);
+                
+                /* 🌟 BORDER ANIMADO 🌟 */
+                border: 2px solid transparent;
+                background-clip: padding-box;
+                position: relative;
+                
+                /* 🎨 ANIMAÇÃO CONTÍNUA 🎨 */
+                animation: pulseGlow 2s ease-in-out infinite, borderRainbow 3s linear infinite;
+            }
+            
+            /* 🌈 EFEITO BORDER COLORIDO ANIMADO 🌈 */
+            .floor.playing .music-card::before {
+                content: '';
+                position: absolute;
+                top: -3px;
+                left: -3px;
+                right: -3px;
+                bottom: -3px;
+                background: linear-gradient(45deg, 
+                    #ff0080, #ff8c00, #40e0d0, #ee82ee, 
+                    #98fb98, #ff6347, #87ceeb, #dda0dd);
+                background-size: 300% 300%;
+                border-radius: 23px;
+                z-index: -1;
+                animation: rainbowBorder 2s ease-in-out infinite;
+            }
+            
+            /* 🎵 KEYFRAMES PARA ANIMAÇÕES 🎵 */
+            @keyframes pulseGlow {
+                0%, 100% {
+                    box-shadow: 
+                        0 0 30px rgba(255, 255, 255, 0.8),
+                        0 0 60px rgba(135, 206, 235, 0.6),
+                        0 0 90px rgba(255, 20, 147, 0.4),
+                        inset 0 0 20px rgba(255, 255, 255, 0.1);
+                }
+                50% {
+                    box-shadow: 
+                        0 0 40px rgba(255, 255, 255, 1),
+                        0 0 80px rgba(135, 206, 235, 0.8),
+                        0 0 120px rgba(255, 20, 147, 0.6),
+                        inset 0 0 30px rgba(255, 255, 255, 0.2);
+                }
+            }
+            
+            @keyframes rainbowBorder {
+                0%, 100% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
             }
             
             /* Ocultar elementos desnecessários quando minimizado */
@@ -783,10 +842,18 @@
                 font-size: 1.1rem;
             }
             
-            /* Card ainda mais compacto em telas pequenas */
+            /* Card ainda mais compacto em telas pequenas COM EFEITOS */
             .floor.playing .music-card {
                 transform: scale(0.6) translateY(-40px);
                 max-width: 250px;
+                
+                /* 🎵 EFEITO MOBILE TAMBÉM 🎵 */
+                box-shadow: 
+                    0 0 25px rgba(255, 255, 255, 0.9),
+                    0 0 50px rgba(135, 206, 235, 0.7),
+                    0 0 75px rgba(255, 20, 147, 0.5);
+                
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             .floor.playing .album-cover {
