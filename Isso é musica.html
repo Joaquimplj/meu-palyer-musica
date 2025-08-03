@@ -31,9 +31,10 @@
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
         }
         
         /* Mobile: Remove limitações do container */
@@ -88,13 +89,14 @@
         .floors-container {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 0;
+            margin: 0;
+            padding: 0;
         }
 
         .floor {
-            min-height: 85vh;
-            border-radius: 25px;
+            min-height: 100vh;
+            border-radius: 0;
             overflow: hidden;
             position: relative;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
@@ -108,6 +110,8 @@
             transition-duration: 0.6s;
             transition-timing-function: ease;
             cursor: default;
+            width: 100vw;
+            margin: 0;
         }
 
         .floor:hover {
@@ -149,14 +153,14 @@
         }
 
         .music-card {
-            background: rgba(15, 25, 45, 0.9);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             padding: 35px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             position: relative;
             z-index: 2;
             display: flex;
@@ -167,8 +171,20 @@
         }
 
         .floor.playing .music-card {
-            border: 2px solid rgba(255, 138, 0, 0.5);
-            box-shadow: 0 20px 50px rgba(255, 138, 0, 0.3);
+            transform: scale(0.8) translateY(-20px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Ocultar alguns elementos quando minimizado */
+        .floor.playing .song-info p:not(.artist) {
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+        
+        .floor.playing .album-cover {
+            transform: scale(0.9);
         }
 
         .album-cover {
