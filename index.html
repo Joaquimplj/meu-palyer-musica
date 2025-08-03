@@ -714,160 +714,104 @@
                 z-index: 2;
             }
             
-            /* 🌟 LUZ ATRÁS DO CARD - CORES ESPECÍFICAS POR MÚSICA 🌟 */
+            /* 🌟 LUZ SAINDO DAS BORDAS DO CARD - CORES ESPECÍFICAS POR MÚSICA 🌟 */
             /* Bohemian Rhapsody - Roxo/Dourado */
-            .floor[data-index="0"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(138, 43, 226, 0.8) 0%, rgba(255, 215, 0, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="0"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(138, 43, 226, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.6),
+                    0 0 90px rgba(138, 43, 226, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* Pink Matter - Laranja (como pedido) */
-            .floor[data-index="1"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(255, 140, 0, 0.9) 0%, rgba(255, 69, 0, 0.7) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="1"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(255, 140, 0, 0.9),
+                    0 0 60px rgba(255, 69, 0, 0.7),
+                    0 0 90px rgba(255, 140, 0, 0.5),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* Jesus Walks - Azul/Dourado */
-            .floor[data-index="2"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(30, 144, 255, 0.8) 0%, rgba(255, 215, 0, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="2"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(30, 144, 255, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.6),
+                    0 0 90px rgba(30, 144, 255, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* Dock of the Bay - Verde/Azul */
-            .floor[data-index="3"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(32, 178, 170, 0.8) 0%, rgba(0, 191, 255, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="3"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(32, 178, 170, 0.8),
+                    0 0 60px rgba(0, 191, 255, 0.6),
+                    0 0 90px rgba(32, 178, 170, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* November Rain - Vermelho/Rosa */
-            .floor[data-index="4"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(220, 20, 60, 0.8) 0%, rgba(255, 20, 147, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="4"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(220, 20, 60, 0.8),
+                    0 0 60px rgba(255, 20, 147, 0.6),
+                    0 0 90px rgba(220, 20, 60, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* I Believe to My Soul - Amarelo/Laranja */
-            .floor[data-index="5"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(255, 193, 7, 0.8) 0%, rgba(255, 140, 0, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="5"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(255, 193, 7, 0.8),
+                    0 0 60px rgba(255, 140, 0, 0.6),
+                    0 0 90px rgba(255, 193, 7, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* Eu Amo Você - Verde/Lima */
-            .floor[data-index="6"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(50, 205, 50, 0.8) 0%, rgba(173, 255, 47, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="6"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(50, 205, 50, 0.8),
+                    0 0 60px rgba(173, 255, 47, 0.6),
+                    0 0 90px rgba(50, 205, 50, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* California Dreamin' - Rosa/Roxo */
-            .floor[data-index="7"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(255, 105, 180, 0.8) 0%, rgba(147, 112, 219, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="7"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(255, 105, 180, 0.8),
+                    0 0 60px rgba(147, 112, 219, 0.6),
+                    0 0 90px rgba(255, 105, 180, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
             /* Cotidiano - Ciano/Azul */
-            .floor[data-index="8"].playing::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 120%;
-                height: 120%;
-                background: radial-gradient(circle, rgba(0, 255, 255, 0.8) 0%, rgba(70, 130, 180, 0.6) 50%, transparent 70%);
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                z-index: -1;
-                animation: pulseLight 2s ease-in-out infinite;
-                filter: blur(20px);
+            .floor[data-index="8"].playing .music-card {
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.8),
+                    0 0 60px rgba(70, 130, 180, 0.6),
+                    0 0 90px rgba(0, 255, 255, 0.4),
+                    inset 0 1px 20px rgba(255, 255, 255, 0.1);
+                animation: pulseGlow 2s ease-in-out infinite;
             }
             
-            /* 🎵 ANIMAÇÃO PARA LUZ ATRÁS 🎵 */
-            @keyframes pulseLight {
+            /* 🎵 ANIMAÇÃO PARA LUZ DAS BORDAS 🎵 */
+            @keyframes pulseGlow {
                 0%, 100% {
-                    opacity: 0.6;
-                    transform: translate(-50%, -50%) scale(1);
+                    transform: scale(0.7) translateY(-30px);
                 }
                 50% {
-                    opacity: 1;
-                    transform: translate(-50%, -50%) scale(1.1);
+                    transform: scale(0.72) translateY(-30px);
                 }
             }
             
@@ -1359,35 +1303,36 @@
                         <div class="playlist-item-artist" style="color: #b3b3b3; font-size: 0.9rem;">${song.artist}</div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <a href="${song.spotifyUrl}" target="_blank" class="spotify-link" 
-                           style="color: #1db954; text-decoration: none; padding: 8px 12px; background: rgba(29, 185, 84, 0.1); border-radius: 20px; font-size: 0.85rem; font-weight: bold; transition: all 0.3s ease;"
-                           title="Ouvir no Spotify">
-                            <i class="fab fa-spotify" style="margin-right: 5px;"></i>
-                            Spotify
-                        </a>
                         <div class="playlist-item-duration" style="color: #b3b3b3; font-size: 0.9rem; min-width: 40px;">${song.duration}</div>
+                        <a href="${song.spotifyUrl}" target="_blank" class="spotify-btn" 
+                           style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #1db954; border-radius: 50%; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);"
+                           title="Ouvir no Spotify">
+                            <i class="fab fa-spotify" style="color: white; font-size: 18px;"></i>
+                        </a>
                     </div>
                 `;
                 
                 playlistItems.appendChild(playlistItem);
                 
-                // Evento para tocar música quando clicada (mas não no link do Spotify)
+                // Evento para tocar música quando clicada (mas não no botão do Spotify)
                 playlistItem.addEventListener("click", (e) => {
-                    if (!e.target.closest(".spotify-link")) {
+                    if (!e.target.closest(".spotify-btn")) {
                         playPause(index);
                         playlistModal.classList.remove("show");
                     }
                 });
                 
-                // Efeito hover para o link do Spotify
-                const spotifyLink = playlistItem.querySelector(".spotify-link");
-                spotifyLink.addEventListener("mouseenter", () => {
-                    spotifyLink.style.background = "rgba(29, 185, 84, 0.2)";
-                    spotifyLink.style.color = "#1ed760";
+                // Efeito hover para o botão do Spotify
+                const spotifyBtn = playlistItem.querySelector(".spotify-btn");
+                spotifyBtn.addEventListener("mouseenter", () => {
+                    spotifyBtn.style.background = "#1ed760";
+                    spotifyBtn.style.transform = "scale(1.1)";
+                    spotifyBtn.style.boxShadow = "0 6px 20px rgba(30, 215, 96, 0.4)";
                 });
-                spotifyLink.addEventListener("mouseleave", () => {
-                    spotifyLink.style.background = "rgba(29, 185, 84, 0.1)";
-                    spotifyLink.style.color = "#1db954";
+                spotifyBtn.addEventListener("mouseleave", () => {
+                    spotifyBtn.style.background = "#1db954";
+                    spotifyBtn.style.transform = "scale(1)";
+                    spotifyBtn.style.boxShadow = "0 4px 15px rgba(29, 185, 84, 0.3)";
                 });
             });
         }
