@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Player de Música - Andares Musicais</title>
+    <title>🎵 Player ATUALIZADO - Andares Musicais 🎵</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         * {
@@ -20,11 +20,31 @@
             min-height: 100vh;
             scroll-behavior: smooth;
         }
+        
+        /* Mobile: Remove padding/margin do body */
+        @media (max-width: 768px) {
+            body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+        }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+        }
+        
+        /* Mobile: Remove limitações do container */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+            }
         }
 
         header {
@@ -69,13 +89,14 @@
         .floors-container {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            margin-bottom: 60px;
+            gap: 0;
+            margin: 0;
+            padding: 0;
         }
 
         .floor {
-            min-height: 85vh;
-            border-radius: 25px;
+            min-height: 100vh;
+            border-radius: 0;
             overflow: hidden;
             position: relative;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
@@ -89,6 +110,8 @@
             transition-duration: 0.6s;
             transition-timing-function: ease;
             cursor: default;
+            width: 100vw;
+            margin: 0;
         }
 
         .floor:hover {
@@ -130,14 +153,14 @@
         }
 
         .music-card {
-            background: rgba(15, 25, 45, 0.9);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
             padding: 35px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             position: relative;
             z-index: 2;
             display: flex;
@@ -148,18 +171,20 @@
         }
 
         .floor.playing .music-card {
-            border: 2px solid var(--glow-color, rgba(255, 138, 0, 0.5));
-            box-shadow: 0 20px 50px var(--glow-color, rgba(255, 138, 0, 0.3));
-            animation: cardGlow 2s ease-in-out infinite alternate;
+            transform: scale(0.8) translateY(-20px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
         
-        @keyframes cardGlow {
-            0% {
-                box-shadow: 0 20px 50px var(--glow-color, rgba(255, 138, 0, 0.3));
-            }
-            100% {
-                box-shadow: 0 25px 60px var(--glow-color, rgba(255, 138, 0, 0.6));
-            }
+        /* Ocultar alguns elementos quando minimizado */
+        .floor.playing .song-info p:not(.artist) {
+            opacity: 0.7;
+            font-size: 0.9em;
+        }
+        
+        .floor.playing .album-cover {
+            transform: scale(0.9);
         }
 
         .album-cover {
@@ -176,61 +201,16 @@
         }
 
         .album-cover.playing {
-            position: relative;
+            animation: rotate 10s linear infinite;
             border-color: rgba(255, 138, 0, 0.8);
-            width: 80px;
-            height: 80px;
-            z-index: 2;
-        }
-        
-        .album-cover.playing::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            background: #333;
-            border-radius: 50%;
-            border: 2px solid #666;
-            z-index: 3;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
 
-        .album-cover.playing::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: #000;
-            border-radius: 50%;
-            z-index: 1;
-            pointer-events: none;
-            animation: vinylSpin 3s linear infinite;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-        }
-        
-        .album-cover.playing::after {
-            background: 
-                radial-gradient(circle at center, transparent 0%, transparent 30%, #000 30%, #000 100%),
-                repeating-conic-gradient(
-                    from 0deg,
-                    #000 0deg,
-                    #000 1deg,
-                    rgba(255, 255, 255, 0.05) 1deg,
-                    rgba(255, 255, 255, 0.05) 2deg
-                );
-        }
-
-        @keyframes vinylSpin {
-            0% {
+        @keyframes rotate {
+            from {
                 transform: rotate(0deg);
             }
-            100% {
+
+            to {
                 transform: rotate(360deg);
             }
         }
@@ -653,9 +633,28 @@
         }
 
         @media (max-width: 768px) {
+            /* Fundo vai de borda a borda */
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            
             .floor {
-                min-height: 75vh;
-                border-radius: 15px;
+                min-height: 100vh;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                width: 100vw !important;
+                margin-left: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                position: relative;
+                transform: none !important;
+            }
+            
+            .floors-container {
+                gap: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
             .album-cover {
@@ -691,12 +690,43 @@
                 width: 80px;
             }
             
-            /* Mobile adjustments */
+            /* Card das músicas transparente branco */
             .music-card {
                 width: 95%;
                 max-width: 350px;
                 padding: 20px;
-                background: rgba(15, 25, 45, 0.7);
+                background: rgba(255, 255, 255, 0.25) !important;
+                backdrop-filter: blur(15px) !important;
+                border: 2px solid rgba(255, 255, 255, 0.4) !important;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+            }
+            
+            /* Card minimizado quando está tocando */
+            .floor.playing .music-card {
+                transform: scale(0.7) translateY(-30px);
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(15px);
+                padding: 15px;
+                border-radius: 20px;
+            }
+            
+            /* Ocultar elementos desnecessários quando minimizado */
+            .floor.playing .song-info p:not(.artist) {
+                display: none;
+            }
+            
+            .floor.playing .album-cover {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .floor.playing .song-title {
+                font-size: 1.2rem;
+            }
+            
+            .floor.playing .artist {
+                font-size: 1rem;
             }
             
             .floor-bg {
@@ -729,14 +759,15 @@
             }
 
             .floor {
-                min-height: 70vh;
-                border-radius: 15px;
+                min-height: 100vh;
+                border-radius: 0;
             }
 
             .music-card {
                 padding: 15px;
                 width: 95%;
                 max-width: 300px;
+                background: rgba(255, 255, 255, 0.08);
             }
 
             .album-cover {
@@ -750,6 +781,17 @@
             
             .artist {
                 font-size: 1.1rem;
+            }
+            
+            /* Card ainda mais compacto em telas pequenas */
+            .floor.playing .music-card {
+                transform: scale(0.6) translateY(-40px);
+                max-width: 250px;
+            }
+            
+            .floor.playing .album-cover {
+                width: 100px;
+                height: 100px;
             }
 
             .controls {
@@ -865,8 +907,7 @@
                 duration: "5:55",
                 composer: "Freddie Mercury",
                 totalSeconds: 355,
-                audioUrl: "./musicas/SpotiDownloader.com - Bohemian Rhapsody - Queen.mp3",
-                glowColor: "#ff6b35" // Laranja vibrante do Queen
+                audioUrl: "musicas/SpotiDownloader.com - Bohemian Rhapsody - Queen.mp3"
             },
             {
                 title: "Pink Matter",
@@ -876,19 +917,17 @@
                 duration: "4:04",
                 composer: "Frank Ocean",
                 totalSeconds: 244,
-                audioUrl: "./musicas/SpotiDownloader.com - Pink Matter - Frank Ocean.mp3",
-                glowColor: "#ff8c00" // Laranja da capa do álbum
+                audioUrl: "musicas/SpotiDownloader.com - Pink Matter - Frank Ocean.mp3"
             },
             {
                 title: "Jesus Walks",
                 artist: "Kanye West",
                 cover: "https://lastfm.freetls.fastly.net/i/u/ar0/61d5e94c9aa712b29e283325bc5ae87f.jpg",
-                background: "https://i.pinimg.com/736x/67/d1/5a/67d15af0c018e60b53d88f6d47396479.jpg",
+                background: "https://cdn.wallpapersafari.com/70/50/FZDB8S.png",
                 duration: "3:13",
                 composer: "Kanye West",
                 totalSeconds: 193,
-                audioUrl: "./musicas/SpotiDownloader.com - Jesus Walks - Kanye West.mp3",
-                glowColor: "#ffd700" // Dourado do College Dropout
+                audioUrl: "musicas/SpotiDownloader.com - Jesus Walks - Kanye West.mp3"
             },
             {
                 title: "(Sittin' On) The Dock of the Bay",
@@ -898,8 +937,7 @@
                 duration: "2:43",
                 composer: "Otis Redding & Steve Cropper",
                 totalSeconds: 163,
-                audioUrl: "./musicas/SpotiDownloader.com - (Sittin' On) The Dock of the Bay - Otis Redding.mp3",
-                glowColor: "#87ceeb" // Azul céu da baía
+                audioUrl: "musicas/SpotiDownloader.com - (Sittin' On) the Dock of the Bay - Otis Redding.mp3"
             },
             {
                 title: "November Rain",
@@ -909,8 +947,7 @@
                 duration: "8:57",
                 composer: "Axl Rose",
                 totalSeconds: 537,
-                audioUrl: "./musicas/SpotiDownloader.com - November Rain - Guns N' Roses.mp3",
-                glowColor: "#8a2be2" // Roxo místico da chuva
+                audioUrl: "musicas/SpotiDownloader.com - November Rain - Guns N' Roses.mp3"
             },
             {
                 title: "I Believe to My Soul",
@@ -920,8 +957,7 @@
                 duration: "3:18",
                 composer: "Ray Charles",
                 totalSeconds: 198,
-                audioUrl: "./musicas/SpotiDownloader.com - I Believe to My Soul - Ray Charles.mp3",
-                glowColor: "#ff6347" // Tomate vibrante do soul
+                audioUrl: "musicas/SpotiDownloader.com - I Believe to My Soul - Ray Charles.mp3"
             },
             {
                 title: "Eu Amo Você",
@@ -931,8 +967,7 @@
                 duration: "4:12",
                 composer: "Tim Maia",
                 totalSeconds: 252,
-                audioUrl: "./musicas/SpotiDownloader.com - Eu Amo Você - Tim Maia.mp3",
-                glowColor: "#32cd32" // Verde lima do Tim Maia
+                audioUrl: "musicas/SpotiDownloader.com - Eu Amo Você - Tim Maia.mp3"
             },
             {
                 title: "California Dreamin'",
@@ -942,8 +977,7 @@
                 duration: "2:40",
                 composer: "John Phillips & Michelle Phillips",
                 totalSeconds: 160,
-                audioUrl: "./musicas/SpotiDownloader.com - California Dreamin' - The Mamas & The Papas.mp3",
-                glowColor: "#ffa500" // Laranja do sonho californiano
+                audioUrl: "musicas/SpotiDownloader.com - California Dreamin' - The Mamas & The Papas.mp3"
             },
             {
                 title: "Cotidiano",
@@ -953,8 +987,7 @@
                 duration: "3:45",
                 composer: "Chico Buarque",
                 totalSeconds: 225,
-                audioUrl: "./musicas/SpotiDownloader.com - Cotidiano - Chico Buarque.mp3",
-                glowColor: "#daa520" // Dourado do Chico
+                audioUrl: "musicas/SpotiDownloader.com - Cotidiano - Chico Buarque.mp3"
             },
         ];
 
@@ -1069,6 +1102,18 @@
                 audio.src = songs[index].audioUrl;
                 audio.volume = volumeSlider.value / 100;
                 
+                // Evento para quando há erro de carregamento
+                audio.onerror = (error) => {
+                    console.error("Erro ao carregar áudio:", error);
+                    alert(`Erro ao carregar a música: ${songs[index].title}\nVerifique se o arquivo existe na pasta 'musicas'\n\nDica: Para usar arquivos locais, abra o arquivo através de um servidor web local.`);
+                    isPlaying = false;
+                    playBtn.classList.remove("fa-pause");
+                    playBtn.classList.add("fa-play");
+                    albumCover.classList.remove("playing");
+                    floor.classList.remove("playing");
+                    return;
+                };
+                
                 // Atualizar duração real quando o áudio carregar
                 audio.addEventListener('loadedmetadata', function() {
                     songs[index].totalSeconds = audio.duration;
@@ -1083,25 +1128,28 @@
                     }
                 });
 
-                audio.play().catch(error => {
-                    console.error("Erro ao reproduzir áudio:", error);
-                    alert(`Erro ao carregar a música: ${songs[index].title}\nVerifique se o arquivo existe na pasta 'musicas'`);
-                    isPlaying = false;
-                    return;
-                });
+                // Tentar carregar o áudio primeiro
+                audio.load();
+                
+                // Aguardar um pouco antes de tentar reproduzir
+                setTimeout(() => {
+                    audio.play().catch(error => {
+                        console.error("Erro ao reproduzir áudio:", error);
+                        alert(`Erro ao reproduzir a música: ${songs[index].title}\n\nPossíveis soluções:\n1. Verifique se o arquivo existe na pasta 'musicas'\n2. Use um servidor web local (como Live Server)\n3. Teste online em: joaquimplj.github.io/meu-palyer-musica`);
+                        isPlaying = false;
+                        playBtn.classList.remove("fa-pause");
+                        playBtn.classList.add("fa-play");
+                        albumCover.classList.remove("playing");
+                        floor.classList.remove("playing");
+                        return;
+                    });
+                }, 100);
 
                 playBtn.classList.remove("fa-play");
                 playBtn.classList.add("fa-pause");
                 albumCover.classList.add("playing");
                 floor.classList.add("playing");
-                
-                // Aplicar cor personalizada do brilho
-                const musicCard = floor.querySelector(".music-card");
-                const glowColor = songs[index].glowColor;
-                musicCard.style.setProperty('--glow-color', glowColor);
-                musicCard.style.borderColor = `${glowColor}80`;
-                musicCard.style.boxShadow = `0 20px 50px ${glowColor}50`;
-                
+
                 startProgress(index);
                 createPlaylist();
             } else {
@@ -1145,13 +1193,6 @@
             playBtn.classList.add("fa-play");
             albumCover.classList.remove("playing");
             floor.classList.remove("playing");
-            
-            // Remover cor personalizada do brilho
-            const musicCard = floor.querySelector(".music-card");
-            musicCard.style.removeProperty('--glow-color');
-            musicCard.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-            musicCard.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.8)';
-            
             progressBar.style.width = "0%";
             currentTimeDisplay.textContent = "0:00";
 
@@ -1431,7 +1472,7 @@
             let checkedFiles = 0;
             
             songs.forEach((song, index) => {
-                if (song.audioUrl.startsWith('./musicas/')) {
+                if (song.audioUrl.startsWith('musicas/') || song.audioUrl.startsWith('./musicas/')) {
                     const audio = new Audio();
                     audio.onerror = () => {
                         missingFiles.push(`${index + 1}. ${song.title} - ${song.artist}`);
