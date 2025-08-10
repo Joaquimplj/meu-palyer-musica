@@ -138,18 +138,7 @@
         }
 
         .floor.playing .floor-bg {
-            filter: brightness(0.7) blur(0) hue-rotate(30deg);
-            animation: backgroundPulse 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes backgroundPulse {
-            0% {
-                transform: scale(1);
-            }
-
-            100% {
-                transform: scale(1.05);
-            }
+            filter: brightness(0.4) blur(1px);
         }
 
         .music-card {
@@ -715,57 +704,102 @@
             
             /* 🌟 BORDAS COLORIDAS PULSANTES - CORES ESPECÍFICAS POR MÚSICA 🌟 */
             /* Bohemian Rhapsody - Roxo/Dourado */
-            .floor[data-index="0"].playing .music-card {
-                border: 4px solid rgba(138, 43, 226, 0.8);
-                animation: pulseBorder0 2s ease-in-out infinite;
-            }
+                    .floor[data-index="0"].playing .music-card {
+            border: 4px solid rgba(138, 43, 226, 0.8);
+            animation: pulseBorder0 2s ease-in-out infinite;
+            box-shadow: 
+                0 0 20px rgba(138, 43, 226, 0.8),
+                0 0 40px rgba(138, 43, 226, 0.6),
+                0 0 60px rgba(138, 43, 226, 0.4),
+                inset 0 0 20px rgba(138, 43, 226, 0.3);
+        }
             
             /* Pink Matter - Laranja (como pedido) */
             .floor[data-index="1"].playing .music-card {
                 border: 4px solid rgba(255, 140, 0, 0.9);
                 animation: pulseBorder1 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(255, 140, 0, 0.8),
+                    0 0 40px rgba(255, 140, 0, 0.6),
+                    0 0 60px rgba(255, 140, 0, 0.4),
+                    inset 0 0 20px rgba(255, 140, 0, 0.3);
             }
             
             /* Jesus Walks - Azul/Dourado */
             .floor[data-index="2"].playing .music-card {
                 border: 4px solid rgba(30, 144, 255, 0.8);
                 animation: pulseBorder2 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(30, 144, 255, 0.8),
+                    0 0 40px rgba(30, 144, 255, 0.6),
+                    0 0 60px rgba(30, 144, 255, 0.4),
+                    inset 0 0 20px rgba(30, 144, 255, 0.3);
             }
             
             /* Dock of the Bay - Verde/Azul */
             .floor[data-index="3"].playing .music-card {
                 border: 4px solid rgba(32, 178, 170, 0.8);
                 animation: pulseBorder3 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(32, 178, 170, 0.8),
+                    0 0 40px rgba(32, 178, 170, 0.6),
+                    0 0 60px rgba(32, 178, 170, 0.4),
+                    inset 0 0 20px rgba(32, 178, 170, 0.3);
             }
             
             /* November Rain - Vermelho/Rosa */
             .floor[data-index="4"].playing .music-card {
                 border: 4px solid rgba(220, 20, 60, 0.8);
                 animation: pulseBorder4 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(220, 20, 60, 0.8),
+                    0 0 40px rgba(220, 20, 60, 0.6),
+                    0 0 60px rgba(220, 20, 60, 0.4),
+                    inset 0 0 20px rgba(220, 20, 60, 0.3);
             }
             
             /* I Believe to My Soul - Amarelo/Laranja */
             .floor[data-index="5"].playing .music-card {
                 border: 4px solid rgba(255, 193, 7, 0.8);
                 animation: pulseBorder5 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(255, 193, 7, 0.8),
+                    0 0 40px rgba(255, 193, 7, 0.6),
+                    0 0 60px rgba(255, 193, 7, 0.4),
+                    inset 0 0 20px rgba(255, 193, 7, 0.3);
             }
             
             /* Eu Amo Você - Verde/Lima */
             .floor[data-index="6"].playing .music-card {
                 border: 4px solid rgba(50, 205, 50, 0.8);
                 animation: pulseBorder6 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(50, 205, 50, 0.8),
+                    0 0 40px rgba(50, 205, 50, 0.6),
+                    0 0 60px rgba(50, 205, 50, 0.4),
+                    inset 0 0 20px rgba(50, 205, 50, 0.3);
             }
             
             /* California Dreamin' - Rosa/Roxo */
             .floor[data-index="7"].playing .music-card {
                 border: 4px solid rgba(255, 105, 180, 0.8);
                 animation: pulseBorder7 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(255, 105, 180, 0.8),
+                    0 0 40px rgba(255, 105, 180, 0.6),
+                    0 0 60px rgba(255, 105, 180, 0.4),
+                    inset 0 0 20px rgba(255, 105, 180, 0.3);
             }
             
             /* Cotidiano - Ciano/Azul */
             .floor[data-index="8"].playing .music-card {
                 border: 4px solid rgba(0, 255, 255, 0.8);
                 animation: pulseBorder8 2s ease-in-out infinite;
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 255, 0.8),
+                    0 0 40px rgba(0, 255, 255, 0.6),
+                    0 0 60px rgba(0, 255, 255, 0.4),
+                    inset 0 0 20px rgba(0, 255, 255, 0.3);
             }
             
             /* 🎵 ANIMAÇÕES PARA BORDAS PULSANTES 🎵 */
@@ -835,7 +869,7 @@
             }
             
             .floor.playing .floor-bg {
-                filter: brightness(0.7) blur(0) hue-rotate(30deg) !important;
+                filter: brightness(0.4) blur(0.5px) !important;
             }
             
             .floor-indicator, .floor-title {
