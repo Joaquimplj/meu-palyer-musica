@@ -119,8 +119,10 @@
 
         /* ---------------- HEADER + ABAS DE GÊNERO ---------------- */
         .app-header {
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 200;
             text-align: center;
             padding: 16px 12px 14px;
@@ -230,7 +232,7 @@
 
         .floor-badge {
             position: absolute;
-            top: 96px;
+            top: 150px;
             left: 22px;
             z-index: 3;
             font-family: var(--font-title);
@@ -672,7 +674,7 @@
             .song-title { font-size: 1.45rem; }
             .vslider { width: 80px; }
             .side-nav { right: 12px; }
-            .floor-badge { top: 110px; left: 14px; font-size: 0.95rem; }
+            .floor-badge { top: 180px; left: 14px; font-size: 0.95rem; }
         }
 
         @media (max-width: 480px) {
